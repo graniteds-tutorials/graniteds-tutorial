@@ -40,6 +40,7 @@
     </properties>
   
     <dependencies>
+        <!-- tag::maven-deps[] -->
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -52,6 +53,7 @@
             <artifactId>granite-server-cdi</artifactId>
             <version>${graniteds.version}</version>
         </dependency>
+        <!-- end::maven-deps[] -->
     </dependencies>
 
 </project>

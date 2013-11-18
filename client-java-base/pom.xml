@@ -22,6 +22,7 @@
     </modules>
 	
     <dependencies>
+        <!-- tag::maven-deps[] -->
         <dependency>
             <groupId>org.graniteds</groupId>
             <artifactId>granite-client-java</artifactId>
@@ -34,6 +35,7 @@
             <version>4.0</version>
             <type>jar</type>
         </dependency>
+        <!-- end::maven-deps[] -->
     </dependencies>
 
     <build>

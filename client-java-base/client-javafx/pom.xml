@@ -37,6 +37,7 @@
     </build>
 
     <dependencies>
+        <!-- tag::maven-deps[] -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>javafx</artifactId>
@@ -50,6 +51,7 @@
             <version>${graniteds.version}</version>
             <type>jar</type>
         </dependency>
+        <!-- end::maven-deps[] -->
     </dependencies>
 
 </project>

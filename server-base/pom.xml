@@ -111,6 +111,7 @@
                 </property>
             </activation>
 
+            <!-- tag::maven-flex[] -->
             <build>
                 <plugins>
                     <plugin>
@@ -139,6 +140,7 @@
                     <type>swf</type>
                 </dependency>
             </dependencies>
+            <!-- end::maven-flex[] -->
         </profile>
     </profiles>
 

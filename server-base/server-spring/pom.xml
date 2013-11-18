@@ -24,6 +24,7 @@
     </properties>
 
     <dependencies>
+        <!-- tag::maven-deps[] -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -35,6 +36,7 @@
             <artifactId>granite-server-spring</artifactId>
             <version>${graniteds.version}</version>
         </dependency>
+        <!-- end::maven-deps[] -->
     </dependencies>
 
 </project>

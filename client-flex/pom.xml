@@ -24,6 +24,7 @@
     </properties>
 
     <dependencies>
+        <!-- tag::maven-deps[] -->
         <dependency>
             <groupId>com.adobe.flex.framework</groupId>
             <artifactId>spark</artifactId>
@@ -54,6 +55,7 @@
             <version>${graniteds.version}</version>
             <type>swc</type>
         </dependency>
+        <!-- end::maven-deps[] -->
     </dependencies>
 
     <build>
@@ -153,6 +155,7 @@
                 </property>
             </activation>
 
+            <!-- tag::maven-build-flex[] -->
             <build>
                 <plugins>
                     <plugin>
@@ -206,6 +209,7 @@
                     <type>pom</type>
                 </dependency>
             </dependencies>
+            <!-- end::maven-build-flex[] -->
         </profile>
 
         <profile>
@@ -217,6 +221,7 @@
                 </property>
             </activation>
 
+            <!-- tag::maven-build-air[] -->
             <build>
                 <plugins>
                     <plugin>
@@ -285,6 +290,7 @@
                     <type>pom</type>
                 </dependency>
             </dependencies>
+            <!-- end::maven-build-air[] -->
         </profile>
     </profiles>
 </project>

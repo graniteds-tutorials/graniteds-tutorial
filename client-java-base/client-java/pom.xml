@@ -21,12 +21,14 @@
     </properties>
 	
     <dependencies>
+        <!-- tag::maven-deps[] -->
         <dependency>
             <groupId>org.graniteds</groupId>
             <artifactId>granite-client-java-advanced</artifactId>
             <version>${graniteds.version}</version>
             <type>jar</type>
         </dependency>
+        <!-- end::maven-deps[] -->
     </dependencies>
 
     <build>
