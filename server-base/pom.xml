@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>org.graniteds.tutorials</groupId>
+        <artifactId>tutorial-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>tutorial-parent-server-base</artifactId>
+    <packaging>pom</packaging>
+    <name>GraniteDS Tutorial Parent - Server Base</name>
+	
+    <properties>
+        <tomcat.version>7.0.47</tomcat.version>
+        <glassfish.version>3.1.2.2</glassfish.version>
+        <tomee.version>1.6.0-SNAPSHOT</tomee.version>
+
+        <flexmojos.version>4.0-RC2</flexmojos.version>
+    </properties>
+
+    <modules>
+        <module>server-spring</module>
+        <module>server-ejb</module>
+        <module>server-cdi</module>
+    </modules>
+
+    <build>
+        <finalName>${app.name}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <path>/${app.name}</path>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.glassfish.embedded</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>${glassfish.version}</version>
+                <configuration>
+                    <port>8080</port>
+                    <contextRoot>${app.name}</contextRoot>
+                    <name>${app.name}</name>
+                    <autoDelete>true</autoDelete>
+                    <glassfishProperties>
+                        <property>glassfish.embedded.tmpdir=target</property>
+                    </glassfishProperties>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.openejb.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>1.5.2</version>
+                <configuration>
+                    <finalName>${app.name}</finalName>
+                    <removeTomeeWebapp>true</removeTomeeWebapp>
+                    <tomeeVersion>${tomee.version}</tomeeVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.graniteds</groupId>
+            <artifactId>granite-server</artifactId>
+            <version>${graniteds.version}</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>client-flex</id>
+            <activation>
+                <property>
+                    <name>client</name>
+                    <value>flex</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.flexmojos</groupId>
+                        <artifactId>flexmojos-maven-plugin</artifactId>
+                        <version>${flexmojos.version}</version>
+                        <configuration>
+                            <stripVersion>true</stripVersion>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>copy-flex-resources</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+
+            <dependencies>
+                <dependency>
+                    <groupId>org.graniteds.tutorial</groupId>
+                    <artifactId>tutorial-${app.name}-client-flex</artifactId>
+                    <version>1.0-SNAPSHOT</version>
+                    <type>swf</type>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+</project>

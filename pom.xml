@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  GRANITE DATA SERVICES
+  Copyright (C) 2013 GRANITE DATA SERVICES S.A.S.
+
+  This file is part of Granite Data Services.
+
+  Granite Data Services is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or (at your
+  option) any later version.
+
+  Granite Data Services is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  for more details.
+
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, see <http://www.gnu.org/licenses/>.
+-->
+
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>org.graniteds.tutorials</groupId>
+    <artifactId>tutorial-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>GraniteDS Tutorial Parent</name>
+	
+    <organization>
+        <name>GraniteDS</name>
+    </organization>
+
+    <properties>
+        <graniteds.version>3.0.0.SNAPSHOT</graniteds.version>
+
+        <asciidoctor.version>0.1.3.1</asciidoctor.version>
+
+        <server>spring</server>
+        <client>flex</client>
+    </properties>
+
+    <modules>
+        <module>server-base</module>
+        <module>client-flex</module>
+        <module>client-java-base</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>${asciidoctor.version}</version>
+                <configuration>
+                    <doctype>article</doctype>
+                    <backend>html5</backend>
+                    <outputDirectory>${project.build.directory}/docs</outputDirectory>
+                    <attributes>
+                        <version>${graniteds.version}</version>
+                        <copycss>true</copycss>
+                        <rootdir>${rootdir}</rootdir>
+                        <server>${server}</server>
+                        <client>${client}</client>
+                        <source-highlighter>highlightjs</source-highlighter>
+                        <idprefix></idprefix>
+                        <idseparator>-</idseparator>
+                    </attributes>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <!--This plugin's configuration is used to store Eclipse m2e settings only.
+                It has no influence on the Maven build itself.-->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-dependency-plugin</artifactId>
+                                        <versionRange>[2.3,)</versionRange>
+                                        <goals>
+                                            <goal>copy-dependencies</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore></ignore>
+                                    </action>
+                                </pluginExecution>
+
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.sonatype.flexmojos</groupId>
+                                        <artifactId>flexmojos-maven-plugin</artifactId>
+                                        <versionRange>[4.0-RC2,)</versionRange>
+                                        <goals>
+                                            <goal>compile-swf</goal>
+                                            <goal>generate</goal>
+                                            <goal>test-compile</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <repositories>
+        <!-- Repository for Flex mojos libs -->
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <!-- Repository for Flex mojos plugin -->
+        <pluginRepository>
+            <id>flex-mojos-plugin-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <profiles>
+        <profile>
+            <id>client-java</id>
+            <activation>
+                <property>
+                    <name>client</name>
+                    <value>java</value>
+                </property>
+            </activation>
+            <modules>
+                <module>client-java</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>client-javafx</id>
+            <activation>
+                <property>
+                    <name>client</name>
+                    <value>javafx</value>
+                </property>
+            </activation>
+            <modules>
+                <module>client-javafx</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>client-flex</id>
+            <activation>
+                <property>
+                    <name>client</name>
+                    <value>flex</value>
+                </property>
+            </activation>
+            <modules>
+                <module>client-flex</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>client-air</id>
+            <activation>
+                <property>
+                    <name>client</name>
+                    <value>air</value>
+                </property>
+            </activation>
+            <modules>
+                <module>client-air</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>server-spring</id>
+            <activation>
+                <property>
+                    <name>server</name>
+                    <value>spring</value>
+                </property>
+            </activation>
+            <modules>
+                <module>server-spring</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>server-ejb</id>
+            <activation>
+                <property>
+                    <name>server</name>
+                    <value>ejb</value>
+                </property>
+            </activation>
+            <modules>
+                <module>server-ejb</module>
+            </modules>
+        </profile>
+
+        <profile>
+            <id>server-cdi</id>
+            <activation>
+                <property>
+                    <name>server</name>
+                    <value>cdi</value>
+                </property>
+            </activation>
+            <modules>
+                <module>server-cdi</module>
+            </modules>
+        </profile>
+    </profiles>
+</project>

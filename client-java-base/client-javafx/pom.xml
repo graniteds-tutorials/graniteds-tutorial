@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.graniteds.tutorials</groupId>
+        <artifactId>tutorial-parent-client-java-base</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>tutorial-parent-client-javafx</artifactId>
+    <packaging>pom</packaging>
+    <name>GraniteDS Tutorial Parent - JavaFX Client</name>
+
+    <properties>
+        <client>javafx</client>
+
+        <javafx.version>2.2</javafx.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>2.0</version>
+                <configuration>
+                    <mainClass>${mainclass.name}</mainClass>
+                    <jfxMainAppJarName>${app.name}</jfxMainAppJarName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>javafx</artifactId>
+            <version>${javafx.version}</version>
+            <systemPath>${java.home}/lib/jfxrt.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.graniteds</groupId>
+            <artifactId>granite-client-javafx</artifactId>
+            <version>${graniteds.version}</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+</project>

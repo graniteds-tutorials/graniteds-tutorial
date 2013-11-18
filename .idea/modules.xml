@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/client-flex/client-flex.iml" filepath="$PROJECT_DIR$/client-flex/client-flex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client-java-base/client-java/client-java.iml" filepath="$PROJECT_DIR$/client-java-base/client-java/client-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client-java-base/client-java-base.iml" filepath="$PROJECT_DIR$/client-java-base/client-java-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/client-java-base/client-javafx/client-javafx.iml" filepath="$PROJECT_DIR$/client-java-base/client-javafx/client-javafx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/graniteds-tutorial.iml" filepath="$PROJECT_DIR$/graniteds-tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-base/server-base.iml" filepath="$PROJECT_DIR$/server-base/server-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-base/server-cdi/server-cdi.iml" filepath="$PROJECT_DIR$/server-base/server-cdi/server-cdi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-base/server-ejb/server-ejb.iml" filepath="$PROJECT_DIR$/server-base/server-ejb/server-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-base/server-spring/server-spring.iml" filepath="$PROJECT_DIR$/server-base/server-spring/server-spring.iml" />
+    </modules>
+  </component>
+</project>
+
