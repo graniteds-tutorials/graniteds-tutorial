@@ -133,9 +133,9 @@
 
             <dependencies>
                 <dependency>
-                    <groupId>org.graniteds.tutorial</groupId>
+                    <groupId>org.graniteds.tutorials</groupId>
                     <artifactId>tutorial-${app.name}-client-flex</artifactId>
-                    <version>1.0-SNAPSHOT</version>
+                    <version>${project.version}</version>
                     <type>swf</type>
                 </dependency>
             </dependencies>
