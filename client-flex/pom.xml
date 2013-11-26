@@ -82,6 +82,7 @@
                                 <uid>uid</uid>
                                 <entityFactory>org.granite.generator.as3.BVEntityFactory</entityFactory>
                                 <outputEnumToBaseOutputDirectory>false</outputEnumToBaseOutputDirectory>
+                                <externalizeBigDecimal>true</externalizeBigDecimal>
                             </extraOptions>
                             <includeJavaClasses>
                                 <include>org.graniteds.tutorial.**.entities.**</include>

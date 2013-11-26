@@ -95,6 +95,7 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <!-- tag::maven-generate[] -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
                     <version>1.7</version>
@@ -127,6 +128,7 @@
                             </configuration>
                         </execution>
                     </executions>
+                    <!-- end::maven-generate[] -->
 
                     <dependencies>
                         <dependency>
