@@ -65,6 +65,7 @@
 
         <plugins>
             <plugin>
+                <!-- tag::maven-generate[] -->
                 <groupId>org.sonatype.flexmojos</groupId>
                 <artifactId>flexmojos-maven-plugin</artifactId>
                 <extensions>true</extensions>
@@ -89,6 +90,7 @@
                         </configuration>
                     </execution>
                 </executions>
+                <!-- end::maven-generate[] -->
                 <dependencies>
                     <dependency>
                         <groupId>org.hibernate.javax.persistence</groupId>

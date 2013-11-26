@@ -49,6 +49,13 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.graniteds</groupId>
             <artifactId>granite-server-cdi</artifactId>
             <version>${graniteds.version}</version>

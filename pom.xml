@@ -38,7 +38,7 @@
     <properties>
         <graniteds.version>3.0.0.SNAPSHOT</graniteds.version>
 
-        <asciidoctor.version>0.1.3.1</asciidoctor.version>
+        <asciidoctor.version>0.1.4</asciidoctor.version>
 
         <server>spring</server>
         <client>flex</client>
@@ -69,6 +69,7 @@
                         <source-highlighter>highlightjs</source-highlighter>
                         <idprefix></idprefix>
                         <idseparator>-</idseparator>
+                        <allow-uri-read>true</allow-uri-read>
                     </attributes>
                 </configuration>
             </plugin>
@@ -147,6 +148,15 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+        </pluginRepository>
+
+        <!-- Repository for Asciidoctor 0.1.4 -->
+        <pluginRepository>
+            <id>bintray-tutorial-deps</id>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <url>http://dl.bintray.com/graniteds/tutorial-dependencies</url>
         </pluginRepository>
     </pluginRepositories>
 </project>
