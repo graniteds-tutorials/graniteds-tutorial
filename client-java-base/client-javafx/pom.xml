@@ -77,6 +77,7 @@
                                          uid="uid"
                                          entityfactory="org.granite.generator.as3.BVEntityFactory">
                                         <translator java="org.graniteds.tutorial.${app.name}.entities" client="org.graniteds.tutorial.${app.name}.client"/>
+                                        <translator java="org.graniteds.tutorial.${app.name}.services" client="org.graniteds.tutorial.${app.name}.client"/>
                                         <classpath>
                                             <path refid="maven.plugin.classpath"/>
                                         </classpath>
