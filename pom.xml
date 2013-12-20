@@ -36,7 +36,7 @@
     </organization>
 
     <properties>
-        <graniteds.version>3.0.0.SNAPSHOT</graniteds.version>
+        <graniteds.version>3.0.0.GA</graniteds.version>
 
         <asciidoctor.version>0.1.4</asciidoctor.version>
 
@@ -164,7 +164,7 @@
             </snapshots>
         </pluginRepository>
 
-        <!-- Repository for Asciidoctor 0.1.4 -->
+        <!-- Temporary repository for Asciidoctor 0.1.4 -->
         <pluginRepository>
             <id>bintray-tutorial-deps</id>
             <snapshots>
@@ -173,4 +173,13 @@
             <url>http://dl.bintray.com/graniteds/tutorial-dependencies</url>
         </pluginRepository>
     </pluginRepositories>
+
+    <distributionManagement> 
+        <repository> 
+	    <id>graniteds-staging</id> 
+	    <name>Sonatype Nexus Maven Repository</name> 
+	    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url> 
+	</repository> 
+    </distributionManagement> 
+
 </project>
