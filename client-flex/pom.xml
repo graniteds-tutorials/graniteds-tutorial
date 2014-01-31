@@ -199,6 +199,11 @@
                                 <keepAs3Metadata>Observer</keepAs3Metadata>
                                 <keepAs3Metadata>ManagedEvent</keepAs3Metadata>
                             </keepAs3Metadatas>
+			    <fonts>
+			        <managers>
+			            <manager>flash.fonts.CFFFontManager</manager>
+			        </managers>
+			    </fonts>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -273,6 +278,11 @@
                                 <keepAs3Metadata>Observer</keepAs3Metadata>
                                 <keepAs3Metadata>ManagedEvent</keepAs3Metadata>
                             </keepAs3Metadatas>
+			    <fonts>
+			        <managers>
+			            <manager>flash.fonts.CFFFontManager</manager>
+			        </managers>
+			    </fonts>
                         </configuration>
                         <executions>
                             <execution>
