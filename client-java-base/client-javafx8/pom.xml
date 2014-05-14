@@ -12,9 +12,9 @@
         <version>3.1.0.M1</version>
     </parent>
 
-    <artifactId>tutorial-parent-client-javafx</artifactId>
+    <artifactId>tutorial-parent-client-javafx8</artifactId>
     <packaging>pom</packaging>
-    <name>GraniteDS Tutorial Parent - JavaFX Client</name>
+    <name>GraniteDS Tutorial Parent - JavaFX 8 Client</name>
 
     <properties>
         <client>javafx</client>
