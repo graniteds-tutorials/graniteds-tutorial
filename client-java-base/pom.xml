@@ -19,6 +19,7 @@
     <modules>
         <module>client-java</module>
         <module>client-javafx</module>
+        <module>client-javafx8</module>
     </modules>
 	
     <dependencies>
