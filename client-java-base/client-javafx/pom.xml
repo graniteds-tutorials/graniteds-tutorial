@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.graniteds.tutorials</groupId>
         <artifactId>tutorial-parent-client-java-base</artifactId>
-        <version>3.0.4.GA</version>
+        <version>3.1.0.M1</version>
     </parent>
 
     <artifactId>tutorial-parent-client-javafx</artifactId>
@@ -18,8 +18,6 @@
 
     <properties>
         <client>javafx</client>
-
-        <javafx.version>2.2</javafx.version>
     </properties>
 
     <build>
@@ -28,8 +26,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             
@@ -182,6 +180,12 @@
             <version>${graniteds.version}</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.graniteds</groupId>
+            <artifactId>granite-client-javafx-advanced</artifactId>
+            <version>${graniteds.version}</version>
+            <type>jar</type>
+        </dependency>
         <!-- end::maven-deps[] -->
     </dependencies>
     
@@ -193,15 +197,6 @@
 	      			<name>!m2e.version</name>
 	    		</property>
 	  		</activation>
-	  		<dependencies>
-		        <dependency>
-		            <groupId>com.oracle</groupId>
-		            <artifactId>javafx</artifactId>
-		            <version>${javafx.version}</version>
-		            <systemPath>${java.home}/lib/jfxrt.jar</systemPath>
-		            <scope>system</scope>
-		        </dependency>
-	  		</dependencies>
 		</profile>
  	</profiles>
  

@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.graniteds.tutorials</groupId>
         <artifactId>tutorial-parent</artifactId>
-        <version>3.0.4.GA</version>
+        <version>3.1.0.M1</version>
     </parent>
 
     <artifactId>tutorial-parent-client-java-base</artifactId>
@@ -24,15 +24,9 @@
     <dependencies>
         <!-- tag::maven-deps[] -->
         <dependency>
-            <groupId>org.graniteds</groupId>
-            <artifactId>granite-client-java</artifactId>
-            <version>${graniteds.version}</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpasyncclient</artifactId>
-            <version>4.0</version>
+            <version>4.0.1</version>
             <type>jar</type>
         </dependency>
         <!-- end::maven-deps[] -->
