@@ -27,7 +27,7 @@
     
     <groupId>org.graniteds.tutorials</groupId>
     <artifactId>tutorial-parent</artifactId>
-    <version>3.1.0.M1</version>
+    <version>3.1.0.RC1</version>
     <packaging>pom</packaging>
     <name>GraniteDS Tutorial Parent</name>
 	<description>GraniteDS Tutorial Parent POM</description>
@@ -61,7 +61,7 @@
     </organization>
 	
     <properties>
-        <graniteds.version>3.1.0.M1</graniteds.version>
+        <graniteds.version>3.1.0.RC1</graniteds.version>
 
         <asciidoctor.version>0.1.4</asciidoctor.version>
 
