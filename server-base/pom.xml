@@ -9,7 +9,7 @@
     <parent>
         <groupId>org.graniteds.tutorials</groupId>
         <artifactId>tutorial-parent</artifactId>
-        <version>3.1.0.RC1</version>
+        <version>3.1.0.GA</version>
     </parent>
 
     <artifactId>tutorial-parent-server-base</artifactId>
@@ -17,7 +17,7 @@
     <name>GraniteDS Tutorial Parent - Server Base</name>
 	
     <properties>
-        <tomcat.version>7.0.47</tomcat.version>
+        <tomcat.version>7.0.55</tomcat.version>
         <glassfish.version>3.1.2.2</glassfish.version>
         <tomee.version>1.6.0.2</tomee.version>
 
@@ -54,12 +54,23 @@
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
                 <configuration>
                     <path>/${app.name}</path>
                 </configuration>
             </plugin>
-
+            
+            <plugin>
+		        <groupId>org.eclipse.jetty</groupId>
+		        <artifactId>jetty-maven-plugin</artifactId>
+		        <version>9.1.5.v20140505</version>
+		        <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/${app.name}</contextPath>
+                    </webApp>
+                </configuration>
+		    </plugin>
+			
             <plugin>
                 <groupId>org.glassfish.embedded</groupId>
                 <artifactId>maven-embedded-glassfish-plugin</artifactId>
@@ -67,6 +78,7 @@
                 <configuration>
                     <port>8080</port>
                     <contextRoot>${app.name}</contextRoot>
+					<app>${project.build.directory}/${app.name}.war</app>
                     <name>${app.name}</name>
                     <autoDelete>true</autoDelete>
                     <glassfishProperties>
@@ -89,7 +101,7 @@
             <plugin>
                 <groupId>org.apache.openejb.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
-                <version>1.5.2</version>
+                <version>1.7.0</version>
                 <configuration>
                     <finalName>${app.name}</finalName>
                     <removeTomeeWebapp>true</removeTomeeWebapp>
@@ -97,8 +109,110 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
-
+		
+	    <pluginManagement>
+	      <plugins>
+	        <plugin>
+	          <groupId>org.apache.tomcat.maven</groupId>
+	          <artifactId>tomcat7-maven-plugin</artifactId>
+	          <version>2.2</version>
+	          <dependencies>
+	          <dependency>
+	            <groupId>org.apache.tomcat.embed</groupId>
+	            <artifactId>tomcat-embed-core</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-util</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-coyote</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-api</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>	
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-servlet-api</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-jsp-api</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-jasper</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-jasper-el</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-el-api</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-catalina</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-tribes</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-catalina-ha</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-annotations-api</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-juli</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>	
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat7-websocket</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>				
+	          <dependency>
+	            <groupId>org.apache.tomcat</groupId>
+	            <artifactId>tomcat-websocket-api</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>	          	
+	          <dependency>
+	            <groupId>org.apache.tomcat.embed</groupId>
+	            <artifactId>tomcat-embed-logging-juli</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          <dependency>
+	            <groupId>org.apache.tomcat.embed</groupId>
+	            <artifactId>tomcat-embed-logging-log4j</artifactId>
+	            <version>${tomcat.version}</version>
+	          </dependency>
+	          </dependencies>
+	        </plugin>
+	      </plugins>
+	    </pluginManagement>
+	</build>
+    
     <dependencies>
         <dependency>
             <groupId>org.graniteds</groupId>
