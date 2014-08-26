@@ -84,7 +84,7 @@
 					<contextRoot>${app.name}</contextRoot>
                     <name>${app.name}</name>					
 					<autoDelete>true</autoDelete>
-					<configFile>${basedir}/src/test/resources/domain.xml</configFile>
+					<!--configFile>${basedir}/src/test/resources/domain.xml</configFile-->
 					<glassfishProperties>
 						<property>glassfish.embedded.tmpdir=target</property>
 					</glassfishProperties>
