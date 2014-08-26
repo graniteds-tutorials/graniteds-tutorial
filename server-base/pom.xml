@@ -279,7 +279,36 @@
             <!-- tag::maven-flex[] -->
             <build>
                 <plugins>
-                    <plugin>
+                	<plugin>
+						   <artifactId>maven-resources-plugin</artifactId>
+						   <version>2.6</version>
+						   <executions>
+								   <execution>
+										   <id>copy-resources</id>
+										   <phase>prepare-package</phase>
+										   <goals>
+												   <goal>copy-resources</goal>
+										   </goals>
+										   <configuration>
+												   <outputDirectory>${project.build.directory}/${app.name}</outputDirectory>
+												   <resources>       
+														   <resource>
+																   <directory>${basedir}/../client-flex/target</directory>
+																   <includes>
+																	   <include>index.html</include>
+																	   <include>${app.name}.swf</include>
+																	   <include>AC_OETags.js</include>
+																	   <include>playerProductInstall.swf</include>
+																	   <include>history/**</include>
+																   </includes>
+																   
+														   </resource>
+												   </resources>              
+										   </configuration>            
+								   </execution>
+						   </executions>
+				   </plugin>
+                    <!--plugin>
                         <groupId>org.sonatype.flexmojos</groupId>
                         <artifactId>flexmojos-maven-plugin</artifactId>
                         <version>${flexmojos.version}</version>
@@ -293,7 +322,7 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
+                    </plugin-->
                 </plugins>
             </build>
 

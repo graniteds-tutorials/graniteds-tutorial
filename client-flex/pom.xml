@@ -173,7 +173,27 @@
                                 <type>pom</type>
                             </dependency>
                         </dependencies>
+						<executions>
+							<execution>
+								<goals>
+									<goal>wrapper</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}</outputDirectory>
+									<htmlName>index</htmlName>
+									<parameters>
+										<title>GraniteDS Tutorial: ${app.name}</title>
+										<version_major>10</version_major>
+										<application>${app.name}.swf</application>
+										<expressInstallSwf>playerProductInstall.swf</expressInstallSwf>
+										<width>100%</width>
+										<height>100%</height>
+									</parameters>
+								</configuration>
+							</execution>
+						</executions>
                         <configuration>
+                        	<!--templateURI>folder:html-template/</templateURI-->
                             <contextRoot>/${app.name}</contextRoot>
                             <sourceFile>${app.name}.mxml</sourceFile>
                             <incremental>true</incremental>
