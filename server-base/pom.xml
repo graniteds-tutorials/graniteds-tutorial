@@ -22,8 +22,6 @@
         <maven.glassfish.version>3.1.2.2</maven.glassfish.version>
         <glassfish.version>4.0</glassfish.version>
         <tomee.version>1.7.0</tomee.version>
-		
-        <flexmojos.version>4.0-RC2</flexmojos.version>
     </properties>
 
     <modules>
@@ -280,49 +278,33 @@
             <build>
                 <plugins>
                 	<plugin>
-						   <artifactId>maven-resources-plugin</artifactId>
-						   <version>2.6</version>
-						   <executions>
-								   <execution>
-										   <id>copy-resources</id>
-										   <phase>prepare-package</phase>
-										   <goals>
-												   <goal>copy-resources</goal>
-										   </goals>
-										   <configuration>
-												   <outputDirectory>${project.build.directory}/${app.name}</outputDirectory>
-												   <resources>       
-														   <resource>
-																   <directory>${basedir}/../client-flex/target</directory>
-																   <includes>
-																	   <include>index.html</include>
-																	   <include>${app.name}.swf</include>
-																	   <include>AC_OETags.js</include>
-																	   <include>playerProductInstall.swf</include>
-																	   <include>history/**</include>
-																   </includes>
-																   
-														   </resource>
-												   </resources>              
-										   </configuration>            
-								   </execution>
-						   </executions>
-				   </plugin>
-                    <!--plugin>
-                        <groupId>org.sonatype.flexmojos</groupId>
-                        <artifactId>flexmojos-maven-plugin</artifactId>
-                        <version>${flexmojos.version}</version>
-                        <configuration>
-                            <stripVersion>true</stripVersion>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>copy-flex-resources</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin-->
+						<artifactId>maven-resources-plugin</artifactId>
+						<version>2.6</version>
+						<executions>
+							<execution>
+								<id>copy-resources</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>${project.build.directory}/${app.name}</outputDirectory>
+									<resources>       
+										<resource>
+											<directory>${basedir}/../client-flex/target</directory>
+											<includes>
+												<include>index.html</include>
+												<include>${app.name}.swf</include>
+												<include>AC_OETags.js</include>
+												<include>playerProductInstall.swf</include>
+												<include>history/**</include>
+											</includes>
+										</resource>
+									</resources>              
+								</configuration>            
+							</execution>
+						</executions>
+					</plugin>
                 </plugins>
             </build>
 

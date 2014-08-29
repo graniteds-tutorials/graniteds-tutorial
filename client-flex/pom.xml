@@ -68,6 +68,7 @@
                 <!-- tag::maven-generate[] -->
                 <groupId>org.sonatype.flexmojos</groupId>
                 <artifactId>flexmojos-maven-plugin</artifactId>
+				<version>${flexmojos.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -164,6 +165,7 @@
                     <plugin>
                         <groupId>org.sonatype.flexmojos</groupId>
                         <artifactId>flexmojos-maven-plugin</artifactId>
+						<version>${flexmojos.version}</version>
                         <extensions>true</extensions>
                         <dependencies>
                             <dependency>
@@ -255,6 +257,7 @@
                     <plugin>
                         <groupId>org.sonatype.flexmojos</groupId>
                         <artifactId>flexmojos-maven-plugin</artifactId>
+						<version>${flexmojos.version}</version>
                         <extensions>true</extensions>
                         <dependencies>
                             <dependency>
